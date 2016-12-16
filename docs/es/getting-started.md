@@ -1,19 +1,19 @@
-# Getting Started
+# Empezando
 
-At the center of every Vuex application is the **store**. A "store" is basically a container that holds your application **state**. There are two things that makes a Vuex store different from a plain global object:
+En el centro de cada aplicación Vuex esta el **almacen** (store). el "Almacén es básicamente un contenedor que contiene el **estado** de la aplicación. Hay dos cosas que hacen al almacén de Vuex diferente a un objecto plano global:
 
-1. Vuex stores are reactive. When Vue components retrieve state from it, they will reactively and efficiently update if the store's state changes.
+1. Los almacenes de Vuex son reactivos. Cuando un componente de Vue obtiene el estado de el, el componente reaccionara y se actualizara efectivamente cuando el estado del almacén se actualize.
 
-2. You cannot directly mutate the store's state. The only way to change a store's state is by explicitly **committing mutations**. This ensures every state change leaves a track-able record, and enables tooling that helps us better understand our applications.
+2. No podrás mutar el estado del almacén directamente. La única forma de cambiar el estado del almacén es explícitamente **ejecutando una mutaciones (commiting mutations)**. Esto asegura que cada cambio de estado, deje un rastro y habilita otras herramientas que nos ayudaran a entender mejor nuestras aplicaciones.
 
-### The Simplest Store
+### El almacén mas simple:
 
-> **NOTE:** We will be using ES2015 syntax for code examples for the rest of the docs. If you haven't picked it up, [you should](https://babeljs.io/docs/learn-es2015/)!
+> **NOTA:** Para el resto de la documentacion estaremos usando la sintaxis ES2015 para los ejemplos de código. Si no la ha utilizado, [aquí podra comenzar](https://babeljs.io/docs/learn-es2015/)!
 
-After [installing](installation.md) Vuex, let's create a store. It is pretty straightforward - just provide an initial state object, and some mutations:
+Después de la [instalación](installation.md) de Vuex, creemos un almacén. Es bastante simple - solo provea un estado inicial, y algunas mutaciones:
 
 ``` js
-// Make sure to call Vue.use(Vuex) first if using a module system
+// Asegúrese de llamar Vue.use(Vuex) primero, en caso de estar utilizando un sistema modular
 
 const store = new Vuex.Store({
   state: {
@@ -26,8 +26,7 @@ const store = new Vuex.Store({
   }
 })
 ```
-
-Now, you can access the state object as `store.state`, and trigger a state change with the `store.commit` method:
+Ahora, usted puede acceder el estado del objeto `store.state`, y ejecutar un cambio de estado usando el método `store.commit`:
 
 ``` js
 store.commit('increment')
@@ -35,10 +34,10 @@ store.commit('increment')
 console.log(store.state.count) // -> 1
 ```
 
-Again, the reason we are committing a mutation instead of changing `store.state.count` directly, is because we want to explicitly track it. This simple convention makes your intention more explicit, so that you can reason about state changes in your app better when reading the code. In addition, this gives us the opportunity to implement tools that can log every mutation, take state snapshots, or even perform time travel debugging.
+De nuevo, la razón por la que estamos ejecutando una mutación en lugar de cambiar el `store.state.count` directamente, es por que queremos explícitamente rastrear sus cambios. Esta simple costumbre hace tu intención mas explicita, entonces podrá entender los cambios de estado en su aplicación de una mejor manera cuando lea el código. Adicionalmente, esto nos da la oportunidad de implementar herramientas que pueden registrar cada mutación, tomar capturas de estado, e inclusive utilizar depuración de viaje en el tiempo (time travel debugging).
 
-Using store state in a component simply involves returning the state within a computed property, because the store state is reactive. Triggering changes simply means committing mutations in component methods.
+Usando el estado del almacén en un componente simplemente require regresar el estado como una propiedad calculada (computed property) por que el estado es reactivo. Ejecutar cambios simplemente significa ejecutar mutaciones en métodos dentro de los componentes.
 
-Here's an example of the [most basic Vuex counter app](https://jsfiddle.net/yyx990803/n9jmu5v7/).
+Aquí encontrara un ejemplo [una aplicación básica de contador en Vuex](https://jsfiddle.net/yyx990803/n9jmu5v7/).
 
-Next, we will discuss each core concept in much finer details, starting with [State](state.md).
+Después, discutiremos cada uno de los conceptos de una manera mas detallada comenzando con el [Estado (State)](state.md).
